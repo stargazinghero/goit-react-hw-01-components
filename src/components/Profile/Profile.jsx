@@ -5,6 +5,12 @@ import {
   ProfileDescription,
   ProfileAvatar,
   ProfileName,
+  ProfileTag,
+  ProfileLocation,
+  ProfileStatsList,
+  ProfileStatsItem,
+  ProfileStatsLabel,
+  ProfileStatsQuantity,
 } from './Profile.styled';
 
 export const Profile = ({ username, tag, location, avatar, stats }) => {
@@ -13,23 +19,23 @@ export const Profile = ({ username, tag, location, avatar, stats }) => {
       <ProfileDescription>
         <ProfileAvatar src={avatar} alt="User avatar" />
         <ProfileName>{username}</ProfileName>
-        <p className="tag">@{tag}</p>
-        <p className="location">{location}</p>
+        <ProfileTag>@{tag}</ProfileTag>
+        <ProfileLocation>{location}</ProfileLocation>
       </ProfileDescription>
-      <ul className="stats">
-        <li>
-          <span className="label">Followers</span>
-          <span className="quantity">{stats.followers}</span>
-        </li>
-        <li>
-          <span className="label">Views</span>
-          <span className="quantity">{stats.views}</span>
-        </li>
-        <li>
-          <span className="label">Likes</span>
-          <span className="quantity">{stats.likes}</span>
-        </li>
-      </ul>
+      <ProfileStatsList>
+        <ProfileStatsItem>
+          <ProfileStatsLabel>Followers</ProfileStatsLabel>
+          <ProfileStatsQuantity>{stats.followers}</ProfileStatsQuantity>
+        </ProfileStatsItem>
+        <ProfileStatsItem>
+          <ProfileStatsLabel>Views</ProfileStatsLabel>
+          <ProfileStatsQuantity>{stats.views}</ProfileStatsQuantity>
+        </ProfileStatsItem>
+        <ProfileStatsItem>
+          <ProfileStatsLabel>Likes</ProfileStatsLabel>
+          <ProfileStatsQuantity>{stats.likes}</ProfileStatsQuantity>
+        </ProfileStatsItem>
+      </ProfileStatsList>
     </ProfileContainer>
   );
 };
